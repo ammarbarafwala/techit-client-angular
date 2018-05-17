@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormControl } from '@angular/forms';
+import { RemoteDataService } from '../services/remote-data.service';
 
-import {LoginService} from '../services/login/login.service';
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.component.html',
@@ -11,21 +11,21 @@ import {LoginService} from '../services/login/login.service';
 })
 export class LoginComponent implements OnInit {
 
-	constructor(private router: Router, private loginService: LoginService) { }
+	constructor(private router: Router, private dataService: RemoteDataService) { }
 
-	username : String;
-	password : String;
+	username : string;
+	password : string;
 
 	ngOnInit() {
 		//This is messy change this
-		if (localStorage.getItem("token") != null){
-			this.router.navigateByUrl('home');
-		}
+		// if (localStorage.getItem("token") != null){
+		// 	this.router.navigateByUrl('home');
+		// }
 	}
 
 	login() : void {
-		console.log('hi')
-		this.loginService.login(this.username, this.password).subscribe((res:any)=>{
+		this.dataService.login(this.username, this.password)
+		.subscribe((res:any)=>{
 			console.log(res)
 			localStorage.setItem("token", res.token)
 			this.router.navigateByUrl('home');

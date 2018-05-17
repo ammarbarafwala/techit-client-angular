@@ -9,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 	title = 'Techit';
-	paths : any[]
+	paths : {}[]
 	currentUser: String;
 
 	constructor(private router: Router) {
 		this.paths = [
 		{title: 'Home', url: 'home'},
-		{title: 'Tickets', url: 'tikets'}];
+		{title: 'Login', url: 'login'},
+		{title: 'Tickets', url: 'tickets'}];
 	}
 
 	logout():void {
