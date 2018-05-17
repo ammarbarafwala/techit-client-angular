@@ -66,11 +66,7 @@
 															<input type="text" id="location" [(ngModel)]="ticket.location" class="form-control"/>
 														</label>
 											</div>
-											<div class="form-group">
-													<label for="unit" class="center-block">Unit:
-														
-													</label>
-										</div>
+										
 										</div>
 										
 							</div>
@@ -110,9 +106,11 @@
 																			<tr *ngFor="let update of currentTicket.updates">
 																				<td>
 																					{{update.modifier}}
-																					{{update.updateDetails}}
-																					{{update.modifiedDate}}
-																				</td>
+																					</td>
+																					<td>{{update.details}}</td>
+																					<td>{{update.modifiedDate}}</td>
+																					
+																				
 																				</tr>
 																	</tbody>
 																</table>

@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
 	username : string;
 	password : string;
+	errMsg : string;
 
 	ngOnInit() {
 		//This is messy change this
@@ -28,10 +29,14 @@ export class LoginComponent implements OnInit {
 		.subscribe(({token, exp, user})=>{
 			localStorage.setItem("token", token)
 			localStorage.setItem("exp", exp.toString())
+			localStorage.setItem("user", user.toString())
 			this.dataService.setFlag(true)
 			this.router.navigateByUrl('home');
 		},
-			(err:any)=>console.log(err)
+			(err:any)=>{
+				console.log(err)
+			this.errMsg = err.error.message
+		}
 	)}
 
 }

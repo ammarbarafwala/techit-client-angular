@@ -19,7 +19,7 @@ export class RemoteDataService {
 
   getTicketsRequested():Observable<{ title:string, tickets:Ticket[] }>{
     let headers = new HttpHeaders().append('Authorization', `Bearer ${localStorage.getItem("token")}`);
-    return this.http.get<{ title:string, tickets:Ticket[] }>("/api/users/5af125ef11a96a2ac19e99f2/tickets",{headers})
+    return this.http.get<{ title:string, tickets:Ticket[] }>(`/api/users/${localStorage.getItem("user")}/tickets`,{headers})
   }
 
   createTicket(ticket:Ticket):Observable<Ticket>{

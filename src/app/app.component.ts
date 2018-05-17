@@ -15,8 +15,7 @@ export class AppComponent {
 
 	constructor(private router: Router, private dataService: RemoteDataService) {
 		this.paths = [
-		{title: 'Home', url: 'home'},
-		{title: 'Login', url: 'login'}];
+		{title: 'Home', url: 'home'}];
 	}
 	ngOnInit(){
 		this.dataService.loggedIn.subscribe(res=> this.loggedIn=res)
@@ -24,7 +23,8 @@ export class AppComponent {
 
 	logout():void {
 		localStorage.removeItem("token")
-		localStorage.removeItem("exp")
+    localStorage.removeItem("exp")
+    localStorage.removeItem("user")
 		this.router.navigateByUrl('login');
 		this.dataService.setFlag(false)
 	}

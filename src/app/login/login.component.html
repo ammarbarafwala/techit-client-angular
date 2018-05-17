@@ -9,6 +9,9 @@
   <label for="password">Password:</label>
   <input type="password" name="password" [(ngModel)]="password" id="password" class="form-control" required/>
   </div>
+  <div class="form-error">
+    <p class="text-danger">{{errMsg}}</p>
+  </div>
   <button type="submit" (click)="login()" class="btn btn-primary">Login</button>
 </div>
 </div>
