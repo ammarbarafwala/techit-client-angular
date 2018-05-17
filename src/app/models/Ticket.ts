@@ -10,7 +10,7 @@ export class Ticket {
 		public completionDetails?: string,
 		public progress?: string,
 		public priority?: string,
-		public unitId?: string
+		public unit?: string
 	) {}
   }
   class Update{

@@ -25,9 +25,12 @@ export class LoginComponent implements OnInit {
 
 	login() : void {
 		this.dataService.login(this.username, this.password)
-		.subscribe((res:any)=>{
-			console.log(res)
-			localStorage.setItem("token", res.token)
+		.subscribe(({token, exp, user})=>{
+			console.log(user)
+			console.log(exp)
+			localStorage.setItem("token", token)
+			localStorage.setItem("exp", exp.toString())
+			this.dataService.setUser(user)
 			this.router.navigateByUrl('home');
 		},
 			(err:any)=>console.log(err)

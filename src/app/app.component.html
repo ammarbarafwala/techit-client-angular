@@ -11,9 +11,8 @@
                 {{ path.title }}</a>
         </li>
     </ul>
-
-    <div class="ml-auto float-right" *ngIf="currentUser">
-        <span>{{ username }}</span>
+    <div class="ml-auto float-right" *ngIf="loggedIn">
+        <span>loggedIn</span>
         <a href="#" (click)="logout()">Log out</a>
     </div>
 

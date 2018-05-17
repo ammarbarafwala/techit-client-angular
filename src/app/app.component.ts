@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from './models/user';
 import { Router } from '@angular/router';
+import { RemoteDataService } from './services/remote-data.service';
 
 @Component({
 	selector: 'app-root',
@@ -10,17 +11,23 @@ import { Router } from '@angular/router';
 export class AppComponent {
 	title = 'Techit';
 	paths : {}[]
-	currentUser: String;
+	loggedIn: boolean
 
-	constructor(private router: Router) {
+	constructor(private router: Router, private dataService: RemoteDataService) {
 		this.paths = [
 		{title: 'Home', url: 'home'},
-		{title: 'Login', url: 'login'},
-		{title: 'Tickets', url: 'tickets'}];
+		{title: 'Login', url: 'login'}];
+	}
+	ngOnInit(){
+		if(localStorage.getItem('token'))
+			this.loggedIn = true
+		else
+			this.loggedIn = false
 	}
 
 	logout():void {
 		localStorage.removeItem("token")
+		localStorage.removeItem("exp")
 		this.router.navigateByUrl('login');
 	}
 	

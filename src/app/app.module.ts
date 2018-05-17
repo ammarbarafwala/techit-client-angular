@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RemoteDataService } from './services/remote-data.service';
+import { CheckLoginGuard } from './guards/check-login.guard';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { RemoteDataService } from './services/remote-data.service';
   providers: [
     RemoteDataService,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
+    CheckLoginGuard
   ],
   bootstrap: [AppComponent]
 })

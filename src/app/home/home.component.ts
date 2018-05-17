@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RemoteDataService } from '../services/remote-data.service';
 import { Ticket } from '../models/Ticket';
 import { tick } from '@angular/core/testing';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { tick } from '@angular/core/testing';
 })
 export class HomeComponent implements OnInit {
   entries: Ticket[] = [];
+  user:User = null
 
   constructor(private dataService: RemoteDataService) { }
 
@@ -19,6 +21,7 @@ export class HomeComponent implements OnInit {
       this.entries = tickets
 		},
 			(err:any)=>console.log(err)
-    )}
+    )
+  }
 
 }
