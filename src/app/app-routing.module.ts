@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { CheckLoginGuard } from './guards/check-login.guard';
+import { CheckLoginGuard } from './guards/login/check-login.guard';
+import { CheckLogoutGuard } from './guards/logout/check-logout.guard';
 
 const routes: Routes = [
 	{
@@ -12,7 +13,8 @@ const routes: Routes = [
 	},
 	{
 		path: 'login',
-		component: LoginComponent
+		component: LoginComponent,
+		canActivate: [CheckLogoutGuard]
 	},
 	{
 		path: '',

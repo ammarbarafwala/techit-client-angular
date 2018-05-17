@@ -8,7 +8,8 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class RemoteDataService {
-  user:User = null
+  flag:boolean= false
+  public loggedIn: Subject<boolean> = new BehaviorSubject<boolean>(this.flag);
 
   constructor(private http: HttpClient) { }
 
@@ -26,12 +27,12 @@ export class RemoteDataService {
     return this.http.post<Ticket>("/api/tickets", ticket, {headers})
   }
   
-  getUser():User{
-    return this.user
+  setFlag(flag:boolean):void{
+    this.flag = flag
+    this.loggedIn.next(flag)
   }
 
-  setUser(user:User){
-    this.user = user
+  getFlag():boolean{
+    return this.flag
   }
-
 }

@@ -19,16 +19,14 @@ export class AppComponent {
 		{title: 'Login', url: 'login'}];
 	}
 	ngOnInit(){
-		if(localStorage.getItem('token'))
-			this.loggedIn = true
-		else
-			this.loggedIn = false
+		this.dataService.loggedIn.subscribe(res=> this.loggedIn=res)
 	}
 
 	logout():void {
 		localStorage.removeItem("token")
 		localStorage.removeItem("exp")
 		this.router.navigateByUrl('login');
+		this.dataService.setFlag(false)
 	}
 	
 }
