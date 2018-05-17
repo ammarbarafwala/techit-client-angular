@@ -4,23 +4,29 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent
-},
-{
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-},
-{
-  path: 'login',
-  component: LoginComponent
-},
+	{
+		path: 'home',
+		component: HomeComponent
+	},
+	{
+		path: '',
+		redirectTo: 'home',
+		pathMatch: 'full'
+	},
+	{
+		path: 'login',
+		component: LoginComponent
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
+	providers: [
+		{
+			provide: 'APP_URL',
+			useValue: 'http://localhost:4200'
+		}
+	]
 })
 export class AppRoutingModule { }

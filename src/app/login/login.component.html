@@ -1,11 +1,9 @@
 <div class="col-lg-8">
-<form (ngSubmit)="login()">
     <div class="form-group">
   <label for="username">Username:</label>
   <input type="text" class="form-control" [(ngModel)]="username" required name="username" id="username"/>
   <label for="password">Password:</label>
   <input type="password" name="password" [(ngModel)]="password" id="password" class="form-control" required/>
-  <input type="submit" value="Login"/>
+  <button (click)="login()">Login</button>
   </div>
-</form>
 </div>

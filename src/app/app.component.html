@@ -13,7 +13,7 @@
     </ul>
 
     <div class="ml-auto float-right" *ngIf="currentUser">
-        <span>{{ currentUser.firstName }} {{ currentUser.lastName }} </span>
+        <span>{{ username }}</span>
         <a href="#" (click)="logout()">Log out</a>
     </div>
 

@@ -6,13 +6,8 @@ import {Observable} from 'rxjs/Observable';
 export class LoginService {
 
   constructor(private http: HttpClient) { }
-
-
+  
   login(username, password):Observable<Response>{
-    return this.http.post<Response>("/api/login", {username: username, password : password})
+    return this.http.post<Response>("/api/login", { username, password })
   }
-
-
-
-
 }
