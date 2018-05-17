@@ -1,1 +1,13 @@
-<app-login></app-login>
+<p *ngIf="entries.length == 0; else hasEntries">
+		No entries yet.
+	  </p>
+	  
+	  <ng-template #hasEntries>
+		<table>
+		  <tr *ngFor="let entry of entries">
+			<td>{{entry.subject}}</td>
+			<td>{{entry.details}}</td>
+			<td>{{entry.startDate | date:'shortDate'}}</td>
+		  </tr>
+		</table>
+	  </ng-template>

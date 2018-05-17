@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { LoginService } from './services/login/login.service';
+import { RemoteDataService } from './services/remote-data.service';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { LoginService } from './services/login/login.service';
     ReactiveFormsModule,
   ],
   providers: [
-    LoginService,
+    RemoteDataService,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
   ],
   bootstrap: [AppComponent]
