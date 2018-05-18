@@ -5,7 +5,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { RemoteDataService } from '../services/remote-data.service';
 import { Ticket } from '../models/Ticket';
 import { tick } from '@angular/core/testing';
-import { User } from '../models/user';
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-home',
