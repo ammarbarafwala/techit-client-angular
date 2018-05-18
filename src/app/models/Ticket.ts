@@ -1,5 +1,8 @@
+import { User } from "./user";
+
 export class Ticket {
 	constructor(
+		public id?: string,
 		public subject?: string,
 		public details?: string,
 		public startDate?: Date,
@@ -15,7 +18,7 @@ export class Ticket {
   }
   class Update{
 	constructor(
-		public modifier?: string,
+		public modifier?: User,
 		public updateDetails?: string,
 		public modifiedDate?: Date
 	) {}

@@ -11,7 +11,7 @@
                 {{ path.title }}</a>
         </li>
     </ul>
-    <div class="ml-auto float-right" *ngIf="loggedIn">
+    <div class="ml-auto float-right" *ngIf="userId">
         <a href="#" (click)="logout()">Log out</a>
     </div>
 

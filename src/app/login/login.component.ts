@@ -17,26 +17,21 @@ export class LoginComponent implements OnInit {
 	password : string;
 	errMsg : string;
 
-	ngOnInit() {
-		//This is messy change this
-		// if (localStorage.getItem("token") != null){
-		// 	this.router.navigateByUrl('home');
-		// }
-	}
+	ngOnInit() {}
 
 	login() : void {
 		this.dataService.login(this.username, this.password)
-		.subscribe(({token, exp, user})=>{
+		.subscribe(({token, exp, userId})=>{
 			localStorage.setItem("token", token)
 			localStorage.setItem("exp", exp.toString())
-			localStorage.setItem("user", user.toString())
-			this.dataService.setFlag(true)
+			localStorage.setItem("userId", userId)
+			this.dataService.setUserId(userId)
+			console.log(userId)
 			this.router.navigateByUrl('home');
 		},
-			(err:any)=>{
-				console.log(err)
+		(err:any)=>{
+			console.log(err)
 			this.errMsg = err.error.message
 		}
 	)}
-
 }
