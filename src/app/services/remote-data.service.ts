@@ -26,6 +26,11 @@ export class RemoteDataService {
     let headers = new HttpHeaders().append('Authorization', `Bearer ${localStorage.getItem("token")}`);
     return this.http.post<Ticket>("/api/tickets", ticket, {headers})
   }
+
+  getUnits():Observable<any>{
+    let headers = new HttpHeaders().append('Authorization', `Bearer ${localStorage.getItem("token")}`);
+    return this.http.get<any>("/api/units", {headers})
+  }
   
   setUserId(userId:string):void{
     this.userId = userId
