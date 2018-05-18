@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   user:User = null;
   ticket: Ticket;
   currentTicket: Ticket;
+  units: any[]
 
 
   constructor(private dataService: RemoteDataService) { }
@@ -29,6 +30,12 @@ export class HomeComponent implements OnInit {
 			(err:any)=>console.log(err)
     )
     this.ticket = new Ticket();
+    this.dataService.getUnits()
+		.subscribe((units)=>{
+      this.units = units
+		},
+			(err:any)=>console.log(err)
+    )
   }
 
   initCreate(){
